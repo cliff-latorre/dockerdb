@@ -1,0 +1,15 @@
+version: '3.4'
+
+services:
+  db:
+    image: pxtidb
+    build:
+      context: .
+      dockerfile: data/Dockerfile
+    ports:
+      - 1433:1433
+    volumes:
+     - mssqldata:/var/opt/mssql
+
+volumes:
+  mssqldata:
