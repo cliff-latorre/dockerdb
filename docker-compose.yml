@@ -2,14 +2,17 @@ version: '3.4'
 
 services:
   db:
+    container_name: databasepxti
     image: pxtidb
     build:
       context: .
-      dockerfile: data/Dockerfile
+      dockerfile: ./database/Dockerfile
     ports:
       - 1433:1433
     volumes:
-     - mssqldata:/var/opt/mssql
+      - type: bind
+        source: ./database/mssqldata
+        target: /var/opt/mssql
 
 volumes:
   mssqldata:
