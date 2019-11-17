@@ -10,9 +10,7 @@ services:
     ports:
       - 1433:1433
     volumes:
-      - type: bind
-        source: ./database/mssqldata
-        target: /var/opt/mssql
+      - mssqldata:/var/opt/mssql
 
 volumes:
   mssqldata:
